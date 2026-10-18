@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cp /eslint.config.mjs .
+
+npm i --save-dev @eslint/js typescript-eslint @stylistic/eslint-plugin eslint-plugin-vue globals eslint

@@ -1,0 +1,19 @@
+name: Create and publish containers
+on:
+  workflow_dispatch:
+jobs:
+  build_container:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.ref }}
+      - name: Login to registry
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+      - name: Build and push images
+        run: ./build.yml
