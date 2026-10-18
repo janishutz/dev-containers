@@ -1,4 +1,4 @@
-FROM ghcr.io/janishutz/dev-containers-node
+FROM ghcr.io/janishutz/dev-container-node
 
 COPY ./init.sh /app/init.sh
 EXPOSE 8080
